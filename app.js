@@ -16,12 +16,19 @@ const VENDORS = [
         name: 'Fast Food Hub',
         desc: 'Burgers, Fries & Shakes',
         rating: 4.8,
+        stats: { pending: 12, preparing: 4 }, // Dynamic dashboard data
         image: 'vendor_fast_food.png',
         menu: [
-            { id: 101, name: 'Classic Burger', price: 199, image: 'vendor_fast_food.png' },
-            { id: 102, name: 'Cheesy Fries', price: 99, image: 'vendor_fast_food.png' },
-            { id: 103, name: 'Chicken Nuggets', price: 149, image: 'vendor_fast_food.png' },
-            { id: 104, name: 'Cola', price: 49, image: 'vendor_fast_food.png' }
+            { id: 101, name: 'Classic Burger', price: 199, rating: 4.7, orders: 1205, image: 'vendor_fast_food.png' },
+            { id: 102, name: 'Cheesy Fries', price: 99, rating: 4.5, orders: 850, image: 'vendor_fast_food.png' },
+            { id: 103, name: 'Chicken Nuggets', price: 149, rating: 4.6, orders: 940, image: 'vendor_fast_food.png' },
+            { id: 104, name: 'Cola', price: 49, rating: 4.2, orders: 2100, image: 'vendor_fast_food.png' },
+            { id: 105, name: 'Spicy Chicken Wrap', price: 179, rating: 4.8, orders: 600, image: 'vendor_fast_food.png' },
+            { id: 106, name: 'Onion Rings', price: 89, rating: 4.3, orders: 400, image: 'vendor_fast_food.png' },
+            { id: 107, name: 'Double Cheeseburger', price: 249, rating: 4.9, orders: 1500, image: 'vendor_fast_food.png' },
+            { id: 108, name: 'Vanilla Shake', price: 129, rating: 4.6, orders: 750, image: 'vendor_fast_food.png' },
+            { id: 109, name: 'Veggie Burger', price: 169, rating: 4.4, orders: 320, image: 'vendor_fast_food.png' },
+            { id: 110, name: 'Large Pepsi', price: 59, rating: 4.1, orders: 1800, image: 'vendor_fast_food.png' }
         ]
     },
     {
@@ -29,12 +36,19 @@ const VENDORS = [
         name: 'Spicy Kitchen',
         desc: 'Authentic Curries & Spice',
         rating: 4.5,
+        stats: { pending: 3, preparing: 8 },
         image: 'vendor_spicy_kitchen.png',
         menu: [
-            { id: 201, name: 'Red Curry', price: 299, image: 'vendor_spicy_kitchen.png' },
-            { id: 202, name: 'Spicy Noodles', price: 249, image: 'vendor_spicy_kitchen.png' },
-            { id: 203, name: 'Tom Yum Soup', price: 199, image: 'vendor_spicy_kitchen.png' },
-            { id: 204, name: 'Thai Iced Tea', price: 129, image: 'vendor_spicy_kitchen.png' }
+            { id: 201, name: 'Red Curry', price: 299, rating: 4.6, orders: 500, image: 'vendor_spicy_kitchen.png' },
+            { id: 202, name: 'Spicy Noodles', price: 249, rating: 4.5, orders: 600, image: 'vendor_spicy_kitchen.png' },
+            { id: 203, name: 'Tom Yum Soup', price: 199, rating: 4.7, orders: 450, image: 'vendor_spicy_kitchen.png' },
+            { id: 204, name: 'Thai Iced Tea', price: 129, rating: 4.8, orders: 900, image: 'vendor_spicy_kitchen.png' },
+            { id: 205, name: 'Green Curry', price: 299, rating: 4.5, orders: 480, image: 'vendor_spicy_kitchen.png' },
+            { id: 206, name: 'Pad Thai', price: 269, rating: 4.9, orders: 1200, image: 'vendor_spicy_kitchen.png' },
+            { id: 207, name: 'Spring Rolls', price: 149, rating: 4.4, orders: 700, image: 'vendor_spicy_kitchen.png' },
+            { id: 208, name: 'Mango Sticky Rice', price: 189, rating: 4.8, orders: 550, image: 'vendor_spicy_kitchen.png' },
+            { id: 209, name: 'Papaya Salad', price: 159, rating: 4.3, orders: 300, image: 'vendor_spicy_kitchen.png' },
+            { id: 210, name: 'Coconut Water', price: 79, rating: 4.6, orders: 800, image: 'vendor_spicy_kitchen.png' }
         ]
     },
     {
@@ -42,12 +56,79 @@ const VENDORS = [
         name: 'Yummy Bites',
         desc: 'Desserts & Sweet Treats',
         rating: 4.9,
+        stats: { pending: 0, preparing: 2 },
         image: 'vendor_yummy_bites.png',
         menu: [
-            { id: 301, name: 'Lava Cake', price: 189, image: 'vendor_yummy_bites.png' },
-            { id: 302, name: 'Fruit Tart', price: 149, image: 'vendor_yummy_bites.png' },
-            { id: 303, name: 'Cheesecake', price: 179, image: 'vendor_yummy_bites.png' },
-            { id: 304, name: 'Cappuccino', price: 119, image: 'vendor_yummy_bites.png' }
+            { id: 301, name: 'Lava Cake', price: 189, rating: 4.9, orders: 2000, image: 'vendor_yummy_bites.png' },
+            { id: 302, name: 'Fruit Tart', price: 149, rating: 4.7, orders: 600, image: 'vendor_yummy_bites.png' },
+            { id: 303, name: 'Cheesecake', price: 179, rating: 4.8, orders: 1500, image: 'vendor_yummy_bites.png' },
+            { id: 304, name: 'Cappuccino', price: 119, rating: 4.6, orders: 1200, image: 'vendor_yummy_bites.png' },
+            { id: 305, name: 'Brownie', price: 99, rating: 4.5, orders: 1100, image: 'vendor_yummy_bites.png' },
+            { id: 306, name: 'Macarons (3pc)', price: 159, rating: 4.7, orders: 850, image: 'vendor_yummy_bites.png' },
+            { id: 307, name: 'Ice Cream Sundae', price: 129, rating: 4.8, orders: 900, image: 'vendor_yummy_bites.png' },
+            { id: 308, name: 'Waffle', price: 149, rating: 4.6, orders: 700, image: 'vendor_yummy_bites.png' },
+            { id: 309, name: 'Hot Chocolate', price: 139, rating: 4.9, orders: 1600, image: 'vendor_yummy_bites.png' },
+            { id: 310, name: 'Donut', price: 79, rating: 4.4, orders: 1000, image: 'vendor_yummy_bites.png' }
+        ]
+    },
+    {
+        id: 4,
+        name: 'Pizza Place',
+        desc: 'Slices & Pies',
+        rating: 4.6,
+        stats: { pending: 15, preparing: 10 },
+        image: 'vendor_pizza_place.png',
+        menu: [
+            { id: 401, name: 'Pepperoni Slice', price: 149, rating: 4.8, orders: 3000, image: 'vendor_pizza_place.png' },
+            { id: 402, name: 'Cheese Pizza', price: 399, rating: 4.5, orders: 1200, image: 'vendor_pizza_place.png' },
+            { id: 403, name: 'Garlic Knots', price: 99, rating: 4.7, orders: 900, image: 'vendor_pizza_place.png' },
+            { id: 404, name: 'BBQ Chicken Pizza', price: 499, rating: 4.8, orders: 800, image: 'vendor_pizza_place.png' },
+            { id: 405, name: 'Veggie Supreme', price: 449, rating: 4.6, orders: 600, image: 'vendor_pizza_place.png' },
+            { id: 406, name: 'Coke Zero', price: 49, rating: 4.2, orders: 500, image: 'vendor_pizza_place.png' },
+            { id: 407, name: 'Hawaiian', price: 429, rating: 4.4, orders: 400, image: 'vendor_pizza_place.png' },
+            { id: 408, name: 'Meat Lovers', price: 549, rating: 4.9, orders: 1100, image: 'vendor_pizza_place.png' },
+            { id: 409, name: 'Mozzarella Sticks', price: 159, rating: 4.7, orders: 1300, image: 'vendor_pizza_place.png' },
+            { id: 410, name: 'Marinara Sauce', price: 29, rating: 4.0, orders: 200, image: 'vendor_pizza_place.png' }
+        ]
+    },
+    {
+        id: 5,
+        name: 'Healthy Greens',
+        desc: 'Salads & Smoothies',
+        rating: 4.7,
+        stats: { pending: 4, preparing: 1 },
+        image: 'vendor_healthy_greens.png',
+        menu: [
+            { id: 501, name: 'Caesar Salad', price: 229, rating: 4.6, orders: 500, image: 'vendor_healthy_greens.png' },
+            { id: 502, name: 'Green Smoothie', price: 149, rating: 4.8, orders: 800, image: 'vendor_healthy_greens.png' },
+            { id: 503, name: 'Quinoa Bowl', price: 279, rating: 4.7, orders: 600, image: 'vendor_healthy_greens.png' },
+            { id: 504, name: 'Greek Salad', price: 219, rating: 4.5, orders: 450, image: 'vendor_healthy_greens.png' },
+            { id: 505, name: 'Avocado Toast', price: 199, rating: 4.9, orders: 1200, image: 'vendor_healthy_greens.png' },
+            { id: 506, name: 'Fruit Bowl', price: 159, rating: 4.6, orders: 700, image: 'vendor_healthy_greens.png' },
+            { id: 507, name: 'Protein Shake', price: 179, rating: 4.7, orders: 900, image: 'vendor_healthy_greens.png' },
+            { id: 508, name: 'Kale Chips', price: 99, rating: 4.3, orders: 300, image: 'vendor_healthy_greens.png' },
+            { id: 509, name: 'Wrap', price: 189, rating: 4.5, orders: 500, image: 'vendor_healthy_greens.png' },
+            { id: 510, name: 'Detox Juice', price: 129, rating: 4.4, orders: 400, image: 'vendor_healthy_greens.png' }
+        ]
+    },
+    {
+        id: 6,
+        name: 'Sushi Bar',
+        desc: 'Fresh Rolls & Sashimi',
+        rating: 4.9,
+        stats: { pending: 8, preparing: 6 },
+        image: 'vendor_sushi_bar.png',
+        menu: [
+            { id: 601, name: 'Salmon Roll', price: 299, rating: 4.8, orders: 1100, image: 'vendor_sushi_bar.png' },
+            { id: 602, name: 'Tuna Sashimi', price: 349, rating: 4.9, orders: 800, image: 'vendor_sushi_bar.png' },
+            { id: 603, name: 'California Roll', price: 249, rating: 4.5, orders: 1500, image: 'vendor_sushi_bar.png' },
+            { id: 604, name: 'Miso Soup', price: 99, rating: 4.6, orders: 1000, image: 'vendor_sushi_bar.png' },
+            { id: 605, name: 'Tempura Shrimp', price: 279, rating: 4.8, orders: 900, image: 'vendor_sushi_bar.png' },
+            { id: 606, name: 'Edamame', price: 129, rating: 4.7, orders: 600, image: 'vendor_sushi_bar.png' },
+            { id: 607, name: 'Dragon Roll', price: 499, rating: 4.9, orders: 750, image: 'vendor_sushi_bar.png' },
+            { id: 608, name: 'Eel Roll', price: 399, rating: 4.7, orders: 500, image: 'vendor_sushi_bar.png' },
+            { id: 609, name: 'Seaweed Salad', price: 149, rating: 4.4, orders: 400, image: 'vendor_sushi_bar.png' },
+            { id: 610, name: 'Green Tea', price: 69, rating: 4.5, orders: 1200, image: 'vendor_sushi_bar.png' }
         ]
     }
 ];
@@ -154,9 +235,93 @@ function render() {
     }
 }
 
+function renderDashboard() {
+    const div = document.createElement('div');
+    div.className = 'dashboard-container';
+
+    // Sort vendors by busy-ness for initial display, but keep consistent order for updates? 
+    // Actually, stick to VENDORS order or top busy? Let's stick to VENDORS sliced to top 5 or just all 6.
+    // Let's show all 6.
+
+    div.innerHTML = `
+        <div class="dashboard-card">
+            <div class="dashboard-title">
+                <span>Live Vendor Status</span>
+                <span class="live-badge"><span class="pulse-dot"></span> Live</span>
+            </div>
+            <div class="graph-container">
+                ${VENDORS.map(v => {
+        const load = v.stats.pending + v.stats.preparing;
+        const maxLoad = 40; // Scale
+        const height = Math.min((load / maxLoad) * 100, 100);
+
+        // Dynamic color based on load
+        let colorClass = 'low';
+        if (load > 15) colorClass = 'med';
+        if (load > 25) colorClass = 'high';
+
+        return `
+                    <div class="graph-bar-group" id="vendor-group-${v.id}">
+                        <div class="graph-bar">
+                            <div class="graph-bar-fill ${colorClass}" id="bar-${v.id}" style="height: ${height}%"></div>
+                        </div>
+                        <div class="graph-label">${v.name}</div>
+                        <div class="graph-count" id="count-${v.id}">${load} orders</div>
+                    </div>
+                    `;
+    }).join('')}
+            </div>
+        </div>
+    `;
+    return div;
+}
+
+// Live Analytics Simulation
+function startLiveUpdates() {
+    setInterval(() => {
+        VENDORS.forEach(v => {
+            // Randomly change stats
+            if (Math.random() > 0.6) {
+                const change = Math.random() > 0.5 ? 1 : -1;
+                v.stats.pending = Math.max(0, v.stats.pending + change);
+            }
+            if (Math.random() > 0.7) {
+                const change = Math.random() > 0.5 ? 1 : -1;
+                v.stats.preparing = Math.max(0, v.stats.preparing + change);
+            }
+
+            // Update DOM if visible
+            const load = v.stats.pending + v.stats.preparing;
+            const maxLoad = 40;
+            const height = Math.min((load / maxLoad) * 100, 100);
+
+            const bar = document.getElementById(`bar-${v.id}`);
+            const count = document.getElementById(`count-${v.id}`);
+
+            if (bar && count) {
+                bar.style.height = `${height}%`;
+
+                // Update Color Class
+                bar.className = 'graph-bar-fill'; // Reset
+                if (load > 25) bar.classList.add('high');
+                else if (load > 15) bar.classList.add('med');
+                else bar.classList.add('low');
+
+                count.innerText = `${load} orders`;
+            }
+        });
+    }, 2000); // Update every 2 seconds
+}
+
+// Start simulation once
+startLiveUpdates();
+
 function renderVendorList() {
     const container = document.createElement('div');
     container.style.width = '100%';
+
+    // Dashboard
+    container.appendChild(renderDashboard());
 
     const title = document.createElement('h2');
     title.textContent = 'Select a Vendor';
@@ -205,7 +370,13 @@ function renderMenu() {
                 <div class="menu-item">
                     <img src="${item.image}" class="menu-item-img" alt="${item.name}">
                     <div class="menu-item-details">
-                        <div>${item.name}</div>
+                        <div>
+                            ${item.name} 
+                            ${item.orders > 1000 ? '<span style="font-size:0.7rem; background:#FFD700; color:black; padding:2px 6px; border-radius:10px; font-weight:bold;">Best Seller</span>' : ''}
+                        </div>
+                        <div style="font-size:0.8rem; color:var(--text-muted); margin: 2px 0;">
+                            ⭐ ${item.rating} • ${item.orders} orders
+                        </div>
                         <div class="menu-item-price">${formatPrice(item.price)}</div>
                     </div>
                     <button class="add-btn ${inCart ? 'active' : ''}" onclick="toggleCart(${item.id})">
@@ -218,12 +389,15 @@ function renderMenu() {
     `;
 
     if (state.cart.length > 0) {
-        const total = state.cart.reduce((sum, item) => sum + item.price, 0);
+        // Fix for NaN: ensure price and quantity are numbers
+        const total = state.cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.quantity) || 1), 0);
+        const count = state.cart.reduce((s, i) => s + (Number(i.quantity) || 1), 0);
+
         const cartBar = document.createElement('div');
         cartBar.className = 'cart-bar';
         cartBar.onclick = () => { triggerHaptic(); setState({ currentView: 'checkout' }); };
         cartBar.innerHTML = `
-            <div>${state.cart.length} Items</div>
+            <div>${count} Items</div>
             <div style="font-weight:700">Checkout ${formatPrice(total)}</div>
         `;
         div.appendChild(cartBar);
@@ -232,17 +406,47 @@ function renderMenu() {
     return div;
 }
 
+window.toggleCart = function (itemId) {
+    triggerHaptic();
+    const item = state.selectedVendor.menu.find(i => i.id === itemId);
+    const inCartIndex = state.cart.findIndex(i => i.id === itemId);
+
+    if (inCartIndex > -1) {
+        // Remove
+        const newCart = [...state.cart];
+        newCart.splice(inCartIndex, 1);
+        setState({ cart: newCart });
+        showNotification('Removed', `${item.name} removed from cart`);
+    } else {
+        // Add Simple - Force numbers
+        const cartItem = {
+            ...item,
+            price: Number(item.price),
+            quantity: 1,
+            customization: {}
+        };
+        setState({ cart: [...state.cart, cartItem] });
+        showNotification('Added', `${item.name} added to cart`);
+    }
+};
+
 function renderCheckout() {
     const div = document.createElement('div');
     div.className = 'page-container';
-    const total = state.cart.reduce((sum, item) => sum + item.price, 0);
+    // Fix for NaN in checkout too
+    const total = state.cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.quantity) || 1), 0);
 
     div.innerHTML = `
         <h2>Order Summary</h2>
         <div class="order-summary">
             ${state.cart.map(item => `
-                <div class="summary-row">
-                    <span>${item.name}</span>
+                <div class="summary-row" style="align-items:flex-start">
+                    <div style="flex:1">
+                        <div>${item.name}</div>
+                        <div style="font-size:0.8rem; color:var(--text-muted)">
+                            ${item.customization.instructions ? `<i>"${item.customization.instructions}"</i>` : ''}
+                        </div>
+                    </div>
                     <span>${formatPrice(item.price)}</span>
                 </div>
             `).join('')}
@@ -306,7 +510,8 @@ function renderVendorWait() {
 function renderPayment() {
     const div = document.createElement('div');
     div.className = 'page-container';
-    const total = state.cart.reduce((sum, item) => sum + item.price, 0);
+    // Fix for NaN: ensure price and quantity are numbers
+    const total = state.cart.reduce((sum, item) => sum + (Number(item.price) || 0) * (Number(item.quantity) || 1), 0);
 
     div.innerHTML = `
         <h2>Payment</h2>
@@ -354,6 +559,12 @@ function renderSuccess() {
                     <span>Order Number</span>
                     <span>#${state.orderCode}</span>
                 </div>
+                
+                <div style="text-align:center; margin: 20px 0;">
+                    <img src="https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${state.orderCode}" style="border-radius:8px; border:1px solid var(--border);" alt="Order QR">
+                    <div style="font-size:0.8rem; color:var(--text-muted); margin-top:5px;">Show this QR for pickup</div>
+                </div>
+
                 <div class="summary-row">
                     <span>Estimated Delivery</span>
                     <span>${state.deliveryTime}</span>
@@ -410,21 +621,6 @@ function selectVendor(vendor) {
     setState({ selectedVendor: vendor, currentView: 'menu', cart: [] });
 }
 
-window.toggleCart = function (itemId) {
-    triggerHaptic();
-    const item = state.selectedVendor.menu.find(i => i.id === itemId);
-    const inCart = state.cart.find(i => i.id === itemId);
-
-    let newCart;
-    if (inCart) {
-        newCart = state.cart.filter(i => i.id !== itemId);
-    } else {
-        newCart = [...state.cart, item];
-    }
-
-    setState({ cart: newCart });
-};
-
 window.requestVendorApproval = function () {
     triggerHaptic();
     setState({ currentView: 'vendor_wait', vendorCode: null });
@@ -468,5 +664,3 @@ window.resetApp = function () {
 document.addEventListener('DOMContentLoaded', () => {
     render();
 });
-
-
