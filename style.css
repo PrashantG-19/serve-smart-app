@@ -394,3 +394,163 @@ h2 {
     font-size: 0.85rem;
     color: var(--text-muted);
 }
+
+/* Dashboard Premium */
+.dashboard-container {
+    padding: 0 15px;
+    /* Reduced padding */
+    max-width: 1200px;
+    margin: 10px auto 0;
+    /* Reduced margin */
+}
+
+.dashboard-card {
+    background: linear-gradient(135deg, #6C5CE7 0%, #a363d9 100%);
+    color: white;
+    padding: 15px 20px;
+    /* Compact padding */
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(108, 92, 231, 0.25);
+    margin-bottom: 15px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.dashboard-title {
+    font-size: 1rem;
+    /* Slightly smaller title */
+    font-weight: 700;
+    margin-bottom: 10px;
+    /* Tighter spacing */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    letter-spacing: 0.5px;
+}
+
+.live-badge {
+    background: rgba(0, 0, 0, 0.25);
+    padding: 4px 10px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.pulse-dot {
+    width: 6px;
+    height: 6px;
+    background-color: #00ff88;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+    box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7);
+    }
+
+    70% {
+        transform: scale(1);
+        box-shadow: 0 0 0 4px rgba(0, 255, 136, 0);
+    }
+
+    100% {
+        transform: scale(0.95);
+        box-shadow: 0 0 0 0 rgba(0, 255, 136, 0);
+    }
+}
+
+.graph-container {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding-bottom: 5px;
+    height: 110px;
+    /* Slight increase to fit text */
+    align-items: stretch;
+    /* Stretch groups to full height */
+}
+
+.graph-bar-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    /* Push content to bottom */
+    height: 100%;
+    min-width: 75px;
+    /* Wider for full names */
+    padding-top: 10px;
+}
+
+.graph-bar {
+    width: 10px;
+    flex: 1;
+    /* Take available vertical space */
+    min-height: 20px;
+    /* Ensure bar is always visible */
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 6px;
+}
+
+.graph-bar-fill {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 6px;
+    transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1), background-color 0.5s ease;
+}
+
+/* Dynamic Colors */
+.graph-bar-fill.low {
+    background: linear-gradient(to top, #00b894, #55efc4);
+}
+
+/* Green */
+.graph-bar-fill.med {
+    background: linear-gradient(to top, #fdcb6e, #ffeaa7);
+}
+
+/* Orange */
+.graph-bar-fill.high {
+    background: linear-gradient(to top, #ff7675, #ff9f43);
+}
+
+/* Red */
+
+.graph-label {
+    font-size: 0.7rem;
+    color: #ffffff;
+    text-align: center;
+    white-space: normal;
+    /* Allow wrapping */
+    line-height: 1.1;
+    width: 100%;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    letter-spacing: 0.3px;
+    margin-bottom: 2px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Limit to 2 lines */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.graph-count {
+    font-size: 0.6rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 500;
+}
